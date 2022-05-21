@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+
 
 function App() {
+  const [actors,setActors] = useState([
+    {
+      name: 'Leonardo Dicaprio',
+      score: 10,
+      hobbies:'Music and dancing naked in the rain',
+      description: 'He is a good guy with a thick mustache.'
+    }
+  ])
+  //ar trebui sa adaug un id pentru fiecare actor care sa fie utilizat pentru key cand fac map.
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App">    
+        { actors.map((actor) => (<ul>
+        <li>{actor.name}</li>
+        <li>{actor.score}</li>
+        <li>{actor.hobbies}</li>
+        <li>{actor.description}</li>
+        </ul>))}      
     </div>
   );
 }
